@@ -5,11 +5,32 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #232342;
+    --text-primary: #e0e0e0;
+    --text-secondary: #fff3cd;
+    --accent-primary: #4a1558;
+    --accent-secondary: #165b31;
+    --card-bg: #1a1a2e;
+}
+
+:root[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --text-primary: #333333;
+    --text-secondary: #4a1558;
+    --accent-primary: #4a1558;
+    --accent-secondary: #165b31;
+    --card-bg: #ffffff;
+}
+
 body {
     font-family: 'Georgia', serif;
     line-height: 1.6;
-    color: #e0e0e0;
-    background-color: #1a1a2e;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -113,7 +134,7 @@ main {
 }
 
 .about-section {
-    background: #232342;
+    background: var(--bg-secondary);
     border-radius: 15px;
     padding: 3rem;
     margin-bottom: 3rem;
@@ -121,7 +142,7 @@ main {
 }
 
 .about-section h2 {
-    color: #fff3cd;
+    color: var(--text-secondary);
     font-size: 2.5rem;
     margin-bottom: 2rem;
     text-align: center;
@@ -148,14 +169,14 @@ main {
 }
 
 .story-card {
-    background: #1a1a2e;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 10px;
     border-left: 4px solid #165b31;
 }
 
 .story-card h4 {
-    color: #fff3cd;
+    color: var(--text-secondary);
     font-size: 1.3rem;
     margin-bottom: 1rem;
 }
@@ -168,7 +189,7 @@ main {
 }
 
 .feature-item {
-    background: #1a1a2e;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 10px;
     text-align: center;
@@ -185,7 +206,7 @@ main {
 }
 
 .feature-item h4 {
-    color: #7cba8c;
+    color: var(--accent-primary);
     margin-bottom: 1rem;
 }
 
@@ -201,7 +222,7 @@ main {
 }
 
 .team-member {
-    background: #1a1a2e;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 15px;
     transition: transform 0.3s ease;
@@ -224,13 +245,13 @@ main {
 }
 
 .member-name {
-    color: #fff3cd;
+    color: var(--text-secondary);
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
 }
 
 .member-role {
-    color: #7cba8c;
+    color: var(--accent-secondary);
     font-size: 1rem;
     margin-bottom: 1rem;
 }
@@ -288,6 +309,22 @@ main {
 
 .btn-primary:hover {
     transform: translateY(-2px);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-left: 1rem;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1);
 }
 
 /* Footer */
