@@ -1,4 +1,4 @@
-<script>
+// filepath: d:\SCM\FunFood-Aboutus\js\script.js
     // Mobile Navigation Toggle
     document.addEventListener('DOMContentLoaded', function() {
         // For mobile navigation (you'll need to add a hamburger menu icon in your HTML)
@@ -100,4 +100,30 @@
         // Check on scroll
         window.addEventListener('scroll', animateOnScroll);
     });
-</script>
+    
+    // Theme switching functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const themeToggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            root.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+        
+        // Theme toggle handler
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = root.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            root.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        function updateThemeIcon(theme) {
+            themeToggle.innerHTML = theme === 'light' ? '🌙' : '☀️';
+        }
+    });
